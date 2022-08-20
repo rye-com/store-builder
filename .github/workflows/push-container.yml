@@ -36,10 +36,10 @@ jobs:
       # Build the Docker image
       - name: Build
         run: |
-          docker build -f Dockerfile.prod  --tag "$IMAGE":"latest" --tag "$IMAGE":"$GITHUB_SHA" .
+          docker build -f Dockerfile.prod  --tag "$IMAGE":"latest" --tag "$IMAGE":"${GITHUB_SHA::7}" .
 
       # Push the Docker image to Google Container Registry
       - name: Publish
         run: |
           docker image push "$IMAGE":"latest"
-          docker image push "$IMAGE":"$GITHUB_SHA"
+          docker image push "$IMAGE":"${GITHUB_SHA::7}"
