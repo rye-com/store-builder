@@ -5,8 +5,6 @@ export const Viewport = Object.freeze({
 
 export const DOMAIN_NAME = window.location.hostname.split('.').reverse().slice(0, 2).reverse().join('.');
 
-export const LOCALHOST = 'localhost';
-
 export const messages = {
   categoryDeleteMessage:
     'Are you sure you want to delete this section and its contents including all of its products and captions?',
