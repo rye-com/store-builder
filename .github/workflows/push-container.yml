@@ -31,7 +31,7 @@ jobs:
       - run: |
           # Set up docker to authenticate
           # via gcloud command-line tool.
-          gcloud auth configure-docker
+          gcloud auth configure-docker us-central1-docker.pkg.dev
 
       # Build the Docker image
       - name: Build
