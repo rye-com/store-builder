@@ -1,7 +1,7 @@
 {
   "name": "store-builder-server",
   "version": "1.0.0",
-  "description": "Server that handles metatags",
+  "description": "Server that handles metatags and wallet",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,9 @@
   "author": "RYE Team",
   "license": "ISC",
   "dependencies": {
+    "@metaplex-foundation/js": "^0.13.3",
+    "@solana/spl-token": "^0.2.0",
+    "@solana/web3.js": "^1.50.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "striptags": "^3.2.0"
