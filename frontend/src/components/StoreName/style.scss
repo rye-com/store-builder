@@ -1,0 +1,43 @@
+.store-name-control-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  vertical-align: middle;
+  align-items: center;
+
+  .store-name-control-container {
+    display: flex;
+
+    .store-name-control {
+      color: #0075ff;
+      display: flex;
+      width: fit-content;
+      max-width: 100%;
+      position: initial;
+      text-decoration: underline;
+      &.editable {
+        border: 1px solid rgb(204, 204, 204);
+      }
+      h1 {
+        line-height: 3.4rem;
+      }
+      h2 {
+        line-height: 2.7rem;
+      }
+      &-content {
+        width: fit-content;
+        margin: 0 !important;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+      &-edit {
+        margin: 4px 4px auto 8px;
+      }
+    }
+  }
+}

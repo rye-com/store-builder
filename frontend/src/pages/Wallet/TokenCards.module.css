@@ -1,0 +1,29 @@
+.tokenCards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #ededed;
+}
+
+.imgContainer {
+  width: 100%;
+}
+
+.img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.mutedText {
+  font-size: 12px;
+  color: #aaa;
+}
+.title {
+  font-size: 14px;
+}

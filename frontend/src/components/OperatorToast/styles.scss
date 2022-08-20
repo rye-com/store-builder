@@ -1,0 +1,30 @@
+.toast {
+  &-container {
+    position: fixed !important;
+    top: 4rem;
+    right: 0.2rem;
+    z-index: 99;
+  }
+
+  &-content {
+    display: flex;
+
+    &__icon {
+      margin: 0.5rem;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+
+      &-title {
+        padding-top: 1rem;
+        padding-left: 0.7rem;
+      }
+
+      &-content {
+        padding: 0 0.7rem !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Stage 1 - Build frontend
+FROM node:16 AS frontend
+WORKDIR /frontend
+COPY frontend/ .
+RUN yarn install
+RUN yarn build
+
+# Stage 2 - Build server
+FROM node:16 AS server
+WORKDIR /server
+COPY server/package*.json ./
+COPY server/yarn.lock ./
+RUN yarn install
+COPY server/. .
+
+# Stage 3
+FROM node:16-alpine
+COPY --from=frontend frontend/build /usr/share/store-builder/frontend/build
+COPY --from=server server /usr/share/store-builder/server
+EXPOSE 3001
+WORKDIR /usr/share/store-builder
+CMD ["node", "server/index.js"]
+

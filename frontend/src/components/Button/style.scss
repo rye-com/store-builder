@@ -1,0 +1,20 @@
+.button-control {
+  height: 56px;
+  border-radius: 8px;
+  background-color: #373737;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: #555;
+    color: white;
+  }
+}

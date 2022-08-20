@@ -1,0 +1,244 @@
+.img-uploader {
+  background-color: #f8f8f8;
+  color: #676767;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+
+  &.filled {
+    background-color: transparent;
+  }
+
+  &.view {
+    cursor: default;
+  }
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: auto;
+  }
+
+  &-placeholder {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      margin: auto 0 auto auto;
+    }
+    span {
+      font-size: 14px;
+      line-height: 14px;
+      margin: auto auto auto 4px;
+    }
+  }
+}
+
+.force-mobile {
+  .promoter-info {
+    flex-direction: column;
+    align-items: center;
+
+    &-name {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-content {
+      margin-bottom: 1rem;
+      margin-left: 0 !important;
+
+      &-wrapper {
+        flex-direction: column;
+      }
+    }
+
+    &-empty {
+      justify-content: center;
+      margin-top: 1rem;
+      margin-left: 0 !important;
+    }
+  }
+}
+
+.promoter-info {
+  display: flex;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+
+    &-name {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-content {
+      margin-bottom: 1rem;
+      margin-left: 0 !important;
+
+      &-wrapper {
+        flex-direction: column;
+      }
+    }
+
+    &-empty {
+      justify-content: center;
+      margin-top: 1rem;
+      margin-left: 0 !important;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    &-content {
+      margin-bottom: 1rem;
+
+      &-wrapper {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &-avatar {
+    min-width: 252px;
+    height: 252px;
+    border-radius: 50%;
+  }
+  &-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 24px;
+
+    &-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #373737;
+    display: flex;
+    max-width: 100%;
+
+    &.editable {
+      border: 1px solid rgb(204, 204, 204);
+    }
+    &.editable-name-font {
+      font-size: 32px;
+    }
+    &-content {
+      width: fit-content;
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+  }
+  &-followers {
+    color: #000;
+    font-size: 20px;
+    &-text {
+      color: #a0a0a0;
+      font-size: 14px;
+    }
+  }
+  &-description {
+    font-size: 13px;
+    color: #818181;
+    max-width: 100%;
+    display: flex;
+    &.editable {
+      border: 1px solid rgb(204, 204, 204);
+    }
+    &.editable-desc-font {
+      font-size: 14px;
+    }
+
+    &-icon-wrapper {
+      display: flex;
+      gap: 1px;
+    }
+
+    textarea {
+      flex: 1;
+      border: none;
+      height: 82px;
+      outline: none;
+    }
+    &-content {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      // Addition lines for 4 line or multiline ellipsis
+      display: -webkit-box !important;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      white-space: normal;
+    }
+    &-edit {
+      min-width: 15px;
+    }
+  }
+  &-tags {
+    max-width: 100%;
+    display: flex;
+
+    &-action-wrapper {
+      display: flex;
+      gap: 1px;
+    }
+  }
+  &-tag {
+    background-color: #e9e9e9;
+    color: #202020;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 4px 6px 4px 0;
+  }
+
+  &-empty {
+    margin-left: 10%;
+    display: flex;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+  }
+}
+
+.seperator {
+  display: block;
+  margin-bottom: 2rem !important;
+}
+
+.affiliate-disclosure {
+
+  &-placeholder {
+    font-size: 13px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-tooltip {
+    pointer-events: visible !important;
+    width: 25rem !important;
+    border-radius: 8px !important;
+  }
+}

@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: 'Poppins';
+  color: 'black';
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'), url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'), url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}

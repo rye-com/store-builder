@@ -1,0 +1,21 @@
+@import 'scss/shared';
+@import 'bootstrap/scss/bootstrap';
+
+.device-icon > path {
+  stroke: #424242;
+}
+.device-selected-icon {
+  background-color: #424242;
+}
+.device-selected-icon > path {
+  stroke: white;
+}
+
+.line {
+  background-color: #c0c0c0;
+  height: 1px;
+}
+
+.App {
+  position: relative;
+}

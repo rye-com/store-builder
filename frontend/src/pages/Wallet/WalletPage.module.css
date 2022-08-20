@@ -1,0 +1,104 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLogo {
+  height: 28px;
+  width: 28px;
+  margin-right: 16px;
+}
+
+.headerText {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.publicAddress,
+.currencyTitle,
+.convertedAmount,
+.recoverKeyText {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.currencyTitle {
+  font-weight: normal;
+}
+
+.currencyCards {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 680px) {
+  .currencyCards {
+    flex-direction: row;
+  }
+
+  .currencyCard {
+    flex: 1;
+  }
+
+  .currencyCard:not(:first-of-type) {
+    margin-top: 0px;
+    margin-left: 16px;
+  }
+}
+
+.currencyCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  height: 82px;
+}
+
+@media screen and (max-width: 679px) {
+  .currencyCard:not(:first-of-type) {
+    margin-top: 16px;
+  }
+}
+
+.currencyCardLogo {
+  height: 24px;
+  /* width:24px; */
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-right: 12px;
+}
+.currencyCardLogoText {
+  margin-right: 18px;
+}
+
+.bodyBold {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.separator {
+  border-top: 1px solid #ededed;
+  margin: 0;
+}
+
+.recoverKeyText {
+  margin-bottom: 10px;
+}
+.recoverKeyButton {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  font-weight: 600;
+  padding: 0;
+}
+
+/* Escape hatch to not undo $btn-border-width: 0; in _variables for now */
+.withBorder {
+  border-width: 1px !important;
+}

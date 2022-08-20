@@ -1,0 +1,18 @@
+.confirm-modal {
+  &__content {
+    padding: 0 1.5rem !important;
+  }
+
+  &__footer {
+    display: flex;
+    padding-bottom: 1rem !important;
+    gap: 2rem;
+
+    &-button-wrapper {
+      width: 7rem;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

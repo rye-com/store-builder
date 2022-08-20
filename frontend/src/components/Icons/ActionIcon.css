@@ -1,0 +1,15 @@
+.action-icon {
+  opacity: 0.3;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin: auto 2px auto 2px;
+}
+.action-icon:hover {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.edit-icon path {
+  fill: #797979;
+}

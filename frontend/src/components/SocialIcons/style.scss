@@ -1,0 +1,19 @@
+@import '../../scss/shared';
+
+.social-icons {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__action-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+  }
+
+  &__add-link {
+    cursor: pointer;
+  }
+}

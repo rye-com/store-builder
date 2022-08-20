@@ -1,0 +1,16 @@
+.product-creator {
+
+  &__add-product {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+  }
+
+  &__err-message {
+    display: block;
+    // color: #FF3B3B;
+    padding: 0.5rem;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}

@@ -1,0 +1,32 @@
+.modal {
+  &__content {
+    &-wrapper {
+      padding: 2rem;
+    }
+
+    &-navigator {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+
+  &__footer {
+    display: block !important;
+    text-align: center !important;
+
+    &-button-wrapper {
+      display: block;
+    }
+  }
+}

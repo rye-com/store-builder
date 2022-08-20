@@ -1,0 +1,15 @@
+.input-control {
+  border: 2px solid #d3d3d3;
+  border-radius: 8px;
+  height: 56px;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  transition: all 0.3s ease;
+  outline: none;
+  &:focus,
+  &:active {
+    outline: none;
+    border: 1px solid #333;
+  }
+}

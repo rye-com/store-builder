@@ -1,0 +1,19 @@
+@import '../../scss/variables';
+
+.category-creator {
+  margin: 1rem;
+  text-align: center;
+
+  &:hover {
+    background-color: $btn-hover-color;
+  }
+
+  &__content {
+    &-button {
+      width: 100%;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
