@@ -17,14 +17,14 @@ build:
 
 .PHONY: start
 start:
-	docker run -d --rm --name=${BASE_NAME} -p 3090:3090 \
+	docker run -d --rm --name=${BASE_NAME} -p 3090:3090 -p 3001:3001 \
 	-v "$(pwd)"/frontend/src:/store-builder/frontend/src:ro \
 	-v "$(pwd)"/frontend/public:/store-builder/frontend/public:ro \
 	${NAME_LATEST}
 
 .PHONY: start-with-local-api
 start-with-local-api:
-	docker run -d --rm --name=${BASE_NAME} -p 3090:3090 \
+	docker run -d --rm --name=${BASE_NAME} -p 3090:3090 -p 3001:3001 \
 	--env REACT_APP_API_URL=http://localhost:8088 \
 	-v "$(pwd)"/frontend/src:/store-builder/frontend/src:ro \
 	-v "$(pwd)"/frontend/public:/store-builder/frontend/public:ro \

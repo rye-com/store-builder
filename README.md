@@ -22,7 +22,7 @@ Update **hosts** file (/etc/hosts on \*nix):
 +127.0.0.1 rye.local
 +127.0.0.1 store-name.rye.local
 # store-name is a name of the store that you want to be able to open locally.
-# example: arjun (https://arjun.rye.local:3090)
+# example: arjun (http://arjun.rye.local:3090)
 ```
 
 (optional) Install **node_modules** to get intelisense:
@@ -51,7 +51,7 @@ make start-with-local-api  # OR
 # To start container that makes calls to production API
 make start
 # Navigate to the store builder
-open "https://rye.store:3090"
+open "http://rye.store:3090"
 ```
 
 To stop the container, run
