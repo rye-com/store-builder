@@ -3,7 +3,7 @@ export const Viewport = Object.freeze({
   Desktop: Symbol('desktop'),
 });
 
-export const DOMAIN_NAME = process.env.REACT_APP_BASE_DOMAIN || 'localhost';
+export const DOMAIN_NAME = window.location.hostname.split('.').reverse().slice(0, 2).reverse().join('.');
 
 export const LOCALHOST = 'localhost';
 

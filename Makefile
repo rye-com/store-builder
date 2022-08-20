@@ -39,7 +39,6 @@ stop:
 .PHONY: build-prod
 build-prod:
 	docker build -f Dockerfile.prod --tag ${PROD_NAME_LOCAL} .
-	@echo "If you want to test locally make sure to change .env.production REACT_APP_BASE_DOMAIN to rye.local before build"
 
 .PHONY: start-prod
 start-prod:

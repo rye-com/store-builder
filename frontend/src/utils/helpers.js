@@ -85,15 +85,11 @@ export const setCookie = (name, value, options = {}) => {
 };
 
 export const isSubDomain = () => {
-  const host = window.location.host;
-  if (host.includes(LOCALHOST)) {
+  const host = window.location.hostname;
+  if (host !== DOMAIN_NAME) {
     return true;
   } else {
-    if (host !== DOMAIN_NAME) {
-      return true;
-    } else {
-      return false;
-    }
+    return false;
   }
 };
 
@@ -111,15 +107,13 @@ export const sanitizeInput = (input) => {
 };
 
 export const getStoreCanonicalURL = (storeName, relativePath = '') => {
-  return `${window.location.protocol}//${storeName}.${DOMAIN_NAME}${
-    window.location.port ? ':' + window.location.port : ''
-  }${relativePath}`;
+  return `${window.location.protocol}//${storeName}.${DOMAIN_NAME}${window.location.port ? ':' + window.location.port : ''
+    }${relativePath}`;
 };
 
 export const getStoreBuilderURL = (relativePath = '') => {
-  return `${window.location.protocol}//${DOMAIN_NAME}${
-    window.location.port ? ':' + window.location.port : ''
-  }/${relativePath}`;
+  return `${window.location.protocol}//${DOMAIN_NAME}${window.location.port ? ':' + window.location.port : ''
+    }/${relativePath}`;
 };
 
 export const removeEmpty = (obj) => {
