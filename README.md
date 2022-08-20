@@ -64,6 +64,10 @@ make stop
 
 - [RYE API reference](https://store-builder.api.rye.com/swagger-ui/)
 
+## What's next
+
+Become a developer on RYE platform today. [Generate your API Key](https://rye.store/api-key) and start using RYE API.
+
 ## License
 
 Store builder is [MIT licensed](/LICENSE).
