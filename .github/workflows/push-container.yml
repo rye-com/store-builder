@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'mikhail/rye-416-store-builder-deploy-image-on-push-to'
 
 # Environment variables available to all jobs and steps in this workflow
 env:
