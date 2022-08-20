@@ -3,8 +3,8 @@ name: Build and Push to GCR
 on:
   push:
     branches:
-      - 'master'
-      - 'mikhail/rye-416-store-builder-deploy-image-on-push-to'
+      - "master"
+      - "mikhail/rye-416-store-builder-deploy-image-on-push-to"
 
 # Environment variables available to all jobs and steps in this workflow
 env:
@@ -39,4 +39,4 @@ jobs:
       - name: Publish
         run: |
           docker image push "$IMAGE":"latest"
-	        docker image push "$IMAGE":"$GITHUB_SHA"
+          docker image push "$IMAGE":"$GITHUB_SHA"
