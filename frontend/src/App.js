@@ -7,13 +7,14 @@ import MainRoute from 'routes/Main';
 import { identify } from 'utils';
 import { GA_TRACKING_ID, GA_USER_ID } from 'config';
 import './App.scss';
+import { GraphQLProvider } from 'gql/client';
 
 identify();
 window.heap.clearEventProperties();
 ReactGA.initialize(GA_TRACKING_ID, {
   gaOptions: {
-    userId: GA_USER_ID
-  }
+    userId: GA_USER_ID,
+  },
 });
 
 function App() {
@@ -22,8 +23,10 @@ function App() {
       <AuthContextProvider>
         <ToastContextProvider>
           <DataContextProvider>
-            <OperatorToast />
-            <MainRoute />
+            <GraphQLProvider>
+              <OperatorToast />
+              <MainRoute />
+            </GraphQLProvider>
           </DataContextProvider>
         </ToastContextProvider>
       </AuthContextProvider>
