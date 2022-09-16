@@ -150,11 +150,7 @@ export const Product = ({
             {loading ? (
               <Skeleton height={40} borderRadius={4} />
             ) : (
-              <BuyProductLink
-                productId={product.product_id}
-                storeName={store_name}
-                isView={isView}
-              />
+              <BuyProductLink storeName={store_name} isView={isView} product={product} />
             )}
           </div>
           <p style={style.vendor}>

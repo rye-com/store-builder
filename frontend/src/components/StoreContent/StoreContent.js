@@ -2,11 +2,19 @@ import { useState, useEffect } from 'react';
 import isEmpty from 'lodash/isEmpty';
 import { Barricade } from 'phosphor-react';
 
-import { ProductCategory, PromoterInfo, StoreTitle, CategoryCreator, StoreName } from 'components';
+import {
+  Button,
+  ProductCategory,
+  PromoterInfo,
+  StoreTitle,
+  CategoryCreator,
+  StoreName,
+} from 'components';
 import { Viewport } from 'config';
 import { getScreenWidth, getStoreBuilderURL } from 'utils';
 import { ReactComponent as DesktopIcon } from 'assets/images/desktop-icon.svg';
 import { ReactComponent as MobileIcon } from 'assets/images/mobile-icon.svg';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const appBodyStyle = {
     display: 'flex',
@@ -112,6 +120,7 @@ const StoreContent = ({ storeData, isView }) => {
 
   return (
     <div className={selectedViewport === Viewport.Mobile ? 'force-mobile' : undefined}>
+      <PurchaseCompleted />
       <div style={appBodyStyle}>
         {!isView && (
           <div style={topBarStyle}>
@@ -193,4 +202,20 @@ const StoreContent = ({ storeData, isView }) => {
   );
 };
 
+function PurchaseCompleted() {
+  const { search, pathname } = useLocation();
+  const navigate = useNavigate();
+  if (search.includes('purchase_completed=true')) {
+    return (
+      <div className="bg-success rounded px-2 py-2 d-flex flex-row justify-content-between align-items-center">
+        <span className="text-white">
+          Thank you! Your payment has been placed. You will receive e-mails with additional
+          information about your order status
+        </span>
+        <Button onClick={() => navigate(pathname)}>Close</Button>
+      </div>
+    );
+  }
+  return null;
+}
 export default StoreContent;

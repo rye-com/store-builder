@@ -7,6 +7,7 @@ import { useDataContext } from 'context';
 import linkIcon from 'assets/images/link-icon.png';
 import './styles.scss';
 import { isUrl } from 'utils';
+import { createScrapeProductVars, useScrapeProduct } from 'gql/scrapeProduct';
 
 const productContainerStyle = {
     background: '#F8F8F8',
@@ -49,6 +50,7 @@ const ProductCreator = ({ categoryId }) => {
   const [isProductLoading, setIsProductLoading] = useState(false);
   const [productLinkInputText, setProductLinkInputText] = useState('');
   const [isError, setIsError] = useState(false);
+  const [scrapeProduct] = useScrapeProduct();
 
   function onProductTextChange(event) {
     setProductLinkInputText(event.target.value);
@@ -56,6 +58,12 @@ const ProductCreator = ({ categoryId }) => {
     setIsProductLoading(true);
     const linkUrl = event.target.value;
     if (isUrl(linkUrl)) {
+      if (linkUrl.includes('amazon')) {
+        scrapeProduct({
+          variables: createScrapeProductVars('AMAZON', linkUrl),
+        });
+      }
+
       createApiCall({
         url: 'api/v1/product/fetch',
         method: 'POST',
@@ -85,7 +93,7 @@ const ProductCreator = ({ categoryId }) => {
 
   return (
     <div style={productContainerStyle}>
-      <h2 className='product-creator__add-product'>Add a product</h2>
+      <h2 className="product-creator__add-product">Add a product</h2>
       <p>Enter the amazon or shopify link of the product you want to add to your store</p>
       <div style={findProductContainerStyle}>
         <input
