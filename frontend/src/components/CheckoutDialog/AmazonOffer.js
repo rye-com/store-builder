@@ -1,8 +1,9 @@
 import { Button } from 'components/Button';
 import { createGetAmazonOfferVars, useGetAmazonOffer } from 'gql/getOffer';
 import OperatorSpinner from 'components/OperatorSpinner';
+import { createAmazonPaymentIntentVars } from 'gql/createPaymentIntent';
 
-export function AmazonOffer({ product, orderDetails, acceptOffer }) {
+export function AmazonOffer({ product, orderDetails, createPaymentIntent, intentCalled }) {
   const { data, loading, error } = useGetAmazonOffer(
     createGetAmazonOfferVars(
       product.product_id,
@@ -12,8 +13,17 @@ export function AmazonOffer({ product, orderDetails, acceptOffer }) {
     )
   );
 
+  const acceptOffer = (event) => {
+    event.preventDefault();
+    if (intentCalled) return;
+
+    createPaymentIntent({
+      variables: createAmazonPaymentIntentVars(product.product_id, orderDetails),
+    });
+  };
+
   if (loading) {
-    return <OperatorSpinner />;
+    return <OperatorSpinner fill={false} />;
   }
   if (error) {
     return (
@@ -48,7 +58,7 @@ export function AmazonOffer({ product, orderDetails, acceptOffer }) {
       <p className="d-flex flex-row justify-content-between">
         <span>Total:</span> <span>{offer.total.displayValue}</span>
       </p>
-      {acceptOffer && (
+      {!intentCalled && (
         <div className="d-flex flex-row justify-content-end">
           <Button type="submit">Continue to payment</Button>
         </div>
