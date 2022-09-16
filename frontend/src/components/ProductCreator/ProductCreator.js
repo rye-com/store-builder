@@ -58,12 +58,6 @@ const ProductCreator = ({ categoryId }) => {
     setIsProductLoading(true);
     const linkUrl = event.target.value;
     if (isUrl(linkUrl)) {
-      if (linkUrl.includes('amazon')) {
-        scrapeProduct({
-          variables: createScrapeProductVars('AMAZON', linkUrl),
-        });
-      }
-
       createApiCall({
         url: 'api/v1/product/fetch',
         method: 'POST',
@@ -77,6 +71,10 @@ const ProductCreator = ({ categoryId }) => {
           setIsError(true);
           return;
         }
+
+        scrapeProduct({
+          variables: createScrapeProductVars(data.marketplace.toUpperCase(), linkUrl),
+        });
 
         addProduct({
           categoryId,

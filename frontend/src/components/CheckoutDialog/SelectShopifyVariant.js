@@ -18,7 +18,7 @@ export function SelectShopifyVariant({ productId, onComplete, productUrl }) {
     );
   }
 
-  if (error) {
+  if (error || (!loading && !data.productByID)) {
     return (
       <p className="text-danger">
         Error occurred during fetching product variants.{' '}
