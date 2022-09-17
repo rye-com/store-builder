@@ -8,6 +8,7 @@ import { identify } from 'utils';
 import { GA_TRACKING_ID, GA_USER_ID } from 'config';
 import './App.scss';
 import { GraphQLProvider } from 'gql/client';
+import { useSetFeatureFlags } from 'featureFlags/useSetFeatureFlags';
 
 identify();
 window.heap.clearEventProperties();
@@ -18,6 +19,7 @@ ReactGA.initialize(GA_TRACKING_ID, {
 });
 
 function App() {
+  useSetFeatureFlags();
   return (
     <div className="App">
       <AuthContextProvider>
