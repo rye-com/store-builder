@@ -59,8 +59,9 @@ export function ShopifyOffer({
 
   const { offer } = data.shopifyOffer;
   const selectedShippingMethod = offer.shippingMethods.find((x) => x.id === shippingMethodId);
+  const taxes = selectedShippingMethod?.taxes?.value ?? offer.digitalItemTaxes?.value ?? 0;
   const total = selectedShippingMethod
-    ? offer.subtotal.value + offer.taxes.value + selectedShippingMethod.price.value
+    ? offer.subtotal.value + taxes + selectedShippingMethod.price.value
     : undefined;
   const totalDisplay = total && `$${Math.floor(total / 100)}.${total % 100}`;
 
@@ -75,9 +76,11 @@ export function ShopifyOffer({
       <p className="d-flex flex-row justify-content-between">
         <span>Subtotal:</span> <span>{offer.subtotal.displayValue}</span>
       </p>
-      <p className="d-flex flex-row justify-content-between">
-        <span>Taxes:</span> <span>{offer.taxes.displayValue}</span>
-      </p>
+      {offer.isDigitalItem && (
+        <p className="d-flex flex-row justify-content-between">
+          <span>Taxes:</span> <span>{offer.taxes.digitalItemTaxes}</span>
+        </p>
+      )}
 
       <div className="mb-2">
         {!intentCalled &&
@@ -92,6 +95,9 @@ export function ShopifyOffer({
           ))}
         {intentCalled && (
           <>
+            <p className="d-flex flex-row justify-content-between">
+              <span>Taxes:</span> <span>{selectedShippingMethod?.taxes.displayValue}</span>
+            </p>
             <p className="d-flex flex-row justify-content-between">
               <span>Shipping:</span> <span>{selectedShippingMethod?.price.displayValue}</span>
             </p>

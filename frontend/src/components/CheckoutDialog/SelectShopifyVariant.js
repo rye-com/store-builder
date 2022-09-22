@@ -38,7 +38,7 @@ export function SelectShopifyVariant({ productId, onComplete, productUrl }) {
           checked={variantId === variant.id}
           imageURL={variant?.image?.url || data.productByID.images?.[0]?.url}
           imageAlt="product variant"
-          label={`${variant.option1} - ${variant.price}`}
+          label={getVariantLabel(variant)}
           value={variant.id}
         />
       ))}
@@ -48,4 +48,9 @@ export function SelectShopifyVariant({ productId, onComplete, productUrl }) {
       </Button>
     </div>
   );
+}
+
+function getVariantLabel(variant) {
+  let options = [variant.option1, variant.option2, variant.option3].filter(Boolean).join(', ');
+  return `${options} - ${variant.price}`;
 }

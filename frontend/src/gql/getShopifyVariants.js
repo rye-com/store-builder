@@ -19,7 +19,10 @@ export function useGetShopifyVariants(variables) {
             ... on ShopifyVariant {
               id
               option1
+              option2
+              option3
               price
+              title
             }
           }
         }

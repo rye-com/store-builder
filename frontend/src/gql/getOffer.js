@@ -65,16 +65,24 @@ export function useGetShopifyOffer(variables) {
               id
               label
               price {
+                currency
                 displayValue
                 value
+              }
+              taxes {
                 currency
+                displayValue
+                value
               }
             }
             subtotal {
+              currency
               displayValue
               value
             }
-            taxes {
+            isDigitalItem
+            digitalItemTaxes {
+              currency
               displayValue
               value
             }
