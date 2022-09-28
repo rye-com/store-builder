@@ -7,7 +7,7 @@ import { useDataContext } from 'context';
 import linkIcon from 'assets/images/link-icon.png';
 import './styles.scss';
 import { isUrl } from 'utils';
-import { createScrapeProductVars, useScrapeProduct } from 'gql/scrapeProduct';
+import { createRequestProductVars, useRequestProduct } from 'gql/requestProduct';
 
 const productContainerStyle = {
     background: '#F8F8F8',
@@ -50,7 +50,7 @@ const ProductCreator = ({ categoryId }) => {
   const [isProductLoading, setIsProductLoading] = useState(false);
   const [productLinkInputText, setProductLinkInputText] = useState('');
   const [isError, setIsError] = useState(false);
-  const [scrapeProduct] = useScrapeProduct();
+  const [requestProduct] = useRequestProduct();
 
   function onProductTextChange(event) {
     setProductLinkInputText(event.target.value);
@@ -72,8 +72,8 @@ const ProductCreator = ({ categoryId }) => {
           return;
         }
 
-        scrapeProduct({
-          variables: createScrapeProductVars(data.marketplace.toUpperCase(), linkUrl),
+        requestProduct({
+          variables: createRequestProductVars(data.marketplace.toUpperCase(), linkUrl),
         });
 
         addProduct({

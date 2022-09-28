@@ -1,9 +1,9 @@
 import { gql, useMutation } from '@apollo/client';
 
-export function useScrapeProduct() {
+export function useRequestProduct() {
   return useMutation(gql`
-    mutation ScrapeProductByURL($input: ScrapeProductByURLInput!) {
-      scrapeProductByURL(input: $input) {
+    mutation RequestProductByURL($input: RequestProductByURLInput!) {
+      requestProductByURL(input: $input) {
         id
       }
     }
@@ -14,7 +14,7 @@ export function useScrapeProduct() {
  * @param {'AMAZON' | 'SHOPIFY'} marketplace
  * @param {string} url
  */
-export function createScrapeProductVars(marketplace, url) {
+export function createRequestProductVars(marketplace, url) {
   return {
     input: {
       marketplace,
