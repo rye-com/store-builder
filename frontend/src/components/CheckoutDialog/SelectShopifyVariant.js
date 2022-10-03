@@ -9,6 +9,7 @@ export function SelectShopifyVariant({ productId, onComplete, productUrl }) {
     createGetShopifyProductVariables(productId)
   );
   const [variantId, setVariantId] = useState();
+  const variants = data?.productByID?.variants;
 
   if (loading) {
     return (
@@ -29,20 +30,31 @@ export function SelectShopifyVariant({ productId, onComplete, productUrl }) {
     );
   }
   return (
-    <div className="d-flex flex-row flex-wrap gap-2">
+    <div className="d-flex flex-column flex-wrap gap-2">
       <h2>Choose product variant</h2>
-      {data?.productByID?.variants.map((variant) => (
-        <Choice
-          key={variant.id}
-          onChange={() => setVariantId(variant.id)}
-          checked={variantId === variant.id}
-          imageURL={variant?.image?.url || data.productByID.images?.[0]?.url}
-          imageAlt="product variant"
-          label={getVariantLabel(variant)}
-          value={variant.id}
-        />
-      ))}
-
+      <div className="d-flex flex-column gap-2">
+        <div className>
+          <img
+            src={
+              variants?.find((variant) => variant.id === variantId)?.image?.url ||
+              data.productByID.images?.[0]?.url
+            }
+            alt={'variant'}
+            width="100%"
+          />
+        </div>
+        <div className="d-flex flex-row flex-wrap gap-2">
+          {variants.map((variant) => (
+            <Choice
+              key={variant.id}
+              onChange={() => setVariantId(variant.id)}
+              checked={variantId === variant.id}
+              label={getVariantLabel(variant)}
+              value={variant.id}
+            />
+          ))}
+        </div>
+      </div>
       <Button disabled={!variantId} onClick={() => onComplete(variantId)}>
         Go to order details
       </Button>
