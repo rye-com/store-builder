@@ -33,7 +33,7 @@ export function SelectShopifyVariant({ productId, onComplete, productUrl }) {
     <div className="d-flex flex-column flex-wrap gap-2">
       <h2>Choose product variant</h2>
       <div className="d-flex flex-column gap-2">
-        <div className>
+        <div>
           <img
             src={
               variants?.find((variant) => variant.id === variantId)?.image?.url ||

@@ -78,7 +78,7 @@ export function ShopifyOffer({
       </p>
       {offer.isDigitalItem && (
         <p className="d-flex flex-row justify-content-between">
-          <span>Taxes:</span> <span>{offer.taxes.digitalItemTaxes}</span>
+          <span>Taxes:</span> <span>{offer.digitalItemTaxes?.displayValue}</span>
         </p>
       )}
 
