@@ -86,6 +86,7 @@ export function useGetShopifyOffer(variables) {
               displayValue
               value
             }
+            isAvailable
           }
         }
       }

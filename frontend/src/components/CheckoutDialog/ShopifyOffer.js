@@ -65,6 +65,14 @@ export function ShopifyOffer({
     : undefined;
   const totalDisplay = total && `$${Math.floor(total / 100)}.${total % 100}`;
 
+  if (!offer.isAvailable) {
+    return (
+      <div>
+        <p>Item is not in stock</p>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={acceptOffer}>
       <h2>Offer</h2>
