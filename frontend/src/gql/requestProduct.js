@@ -4,7 +4,7 @@ export function useRequestProduct() {
   return useMutation(gql`
     mutation RequestProductByURL($input: RequestProductByURLInput!) {
       requestProductByURL(input: $input) {
-        id
+        productID
       }
     }
   `);
