@@ -21,7 +21,7 @@ const defaultState = {
   address2: '',
   city: '',
   stateCode: '',
-  countryCode: 'United States',
+  countryCode: 'US',
   zip: '',
 };
 
