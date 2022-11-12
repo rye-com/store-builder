@@ -9,20 +9,19 @@ export function useGetAmazonOffer(variables) {
     gql`
       query AmazonOffer($input: AmazonOfferInput!) {
         amazonOffer(input: $input) {
-          offer {
-            shipping {
-              displayValue
-            }
-            subtotal {
-              displayValue
-            }
-            taxes {
-              displayValue
-            }
-            total {
-              displayValue
-            }
+          shipping {
+            displayValue
           }
+          subtotal {
+            displayValue
+          }
+          taxes {
+            displayValue
+          }
+          total {
+            displayValue
+          }
+          isAvailable
         }
       }
     `,
@@ -52,7 +51,7 @@ export function createGetAmazonOfferVars(productId, city, countryCode, stateCode
 }
 
 /**
- * @param {ReturnType<typeof createGetAmazonOfferVars>} variables
+ * @param {ReturnType<typeof createGetShopifyOfferVars>} variables
  * @returns
  */
 export function useGetShopifyOffer(variables) {
@@ -60,34 +59,19 @@ export function useGetShopifyOffer(variables) {
     gql`
       query ShopifyOffer($input: ShopifyOfferInput!) {
         shopifyOffer(input: $input) {
-          offer {
-            shippingMethods {
-              id
-              label
-              price {
-                currency
-                displayValue
-                value
-              }
-              taxes {
-                currency
-                displayValue
-                value
-              }
-            }
-            subtotal {
-              currency
-              displayValue
-              value
-            }
-            isDigitalItem
-            digitalItemTaxes {
-              currency
-              displayValue
-              value
-            }
-            isAvailable
+          shipping {
+            displayValue
           }
+          subtotal {
+            displayValue
+          }
+          taxes {
+            displayValue
+          }
+          total {
+            displayValue
+          }
+          isAvailable
         }
       }
     `,
@@ -99,12 +83,11 @@ export function useGetShopifyOffer(variables) {
 
 /**
  * @param {string} variantID
- * @param {string} storeURL
  * @param {string} city
  * @param {string} countryCode
  * @param {string} stateCode
  */
-export function createGetShopifyOfferVars(variantID, storeURL, city, countryCode, stateCode) {
+export function createGetShopifyOfferVars(variantID, city, countryCode, stateCode) {
   return {
     input: {
       location: {
@@ -113,7 +96,6 @@ export function createGetShopifyOfferVars(variantID, storeURL, city, countryCode
         stateCode,
       },
       variantID,
-      storeURL,
     },
   };
 }
