@@ -40,17 +40,14 @@ export function useCreateShopifyPaymentIntent() {
 }
 
 /**
- * @param {string} storeURL
  * @param {string} variantID
  * @param {any} orderDetails
  */
-export function createShopifyPaymentIntentVars(storeURL, variantID, orderDetails, shippingID) {
+export function createShopifyPaymentIntentVars(variantID, orderDetails) {
   return {
     input: {
-      storeURL,
       variantID,
       address: orderDetails,
-      shippingID,
     },
   };
 }

@@ -36,7 +36,7 @@ export function AmazonOffer({ product, orderDetails, createPaymentIntent, intent
     );
   }
 
-  const { offer } = data.amazonOffer;
+  const offer = data.amazonOffer;
 
   return (
     <form onSubmit={acceptOffer}>
