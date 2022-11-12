@@ -21,6 +21,7 @@ export function useGetAmazonOffer(variables) {
           total {
             displayValue
           }
+          isAvailable
         }
       }
     `,

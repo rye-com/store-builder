@@ -38,6 +38,14 @@ export function AmazonOffer({ product, orderDetails, createPaymentIntent, intent
 
   const offer = data.amazonOffer;
 
+  if (!offer?.isAvailable) {
+    return (
+      <div>
+        <p>Item is not in stock</p>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={acceptOffer}>
       <h2>Offer</h2>
