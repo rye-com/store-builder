@@ -62,11 +62,11 @@ make stop
 
 ## Docs
 
-- [RYE API reference](https://store-builder.api.rye.com/swagger-ui/)
+- [Docs](https://docs.rye.com/)
 
 ## What's next
 
-Become a developer on RYE platform today. [Generate your API Key](https://rye.store/api-key) and start using RYE API.
+Become a developer on RYE platform today. [Register](https://console.rye.com/register) and start playing around with our API on [tutorial](https://tutorial.rye.com/)
 
 ## License
 
